@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .row{
-            display: flex;
-            gap: 10px;
-        }
-        .letra{
-            width: 60px;
-            height: 60px;
-            border: 2px solid slategrey;
-            border-radius: 5px;
-        }
-    </style>
+    <title>Wordle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <script defer src="palavras.js"></script>
+    <script defer src="script.js"></script>
+
 </head>
+
 <body>
     <div class="row">
         <div id="letra0" class="letra"></div>
@@ -32,43 +23,7 @@
         <div id="letra3" class="letra"></div>
         <div id="letra4" class="letra"></div>
     </div>
-    <script>
-        
-        const letras = [];
-        // Pega letra digitada pelo usuário
-        document.onkeydown = function (e) {
-            const key = e.keyCode;
-            const letra = String.fromCharCode(key);
-            const reg = new RegExp('[A-Za-z]');
 
-            if(letras.length > 0 && key === 8){ // Backspace
-                removeLetra();
-            } else if(reg.test(letra)){ // Se não for um espaço
-                addLetra(letra);
-            }
-
-            atualizaPalavra();
-        };
-
-        // Adicionar letra no array
-        function addLetra(letra){
-            if(letras.length < 5){
-                letras.push(letra);
-                return;
-            }
-        }
-
-        // Remove letra no array
-        function removeLetra(){
-            letras.pop();
-        }
-
-        // Atualiza palavra após edição do array
-        function atualizaPalavra(){
-            for(let i = 0; i < 5; i++){
-                document.getElementById(`letra${i}`).innerText = letras[i] ? letras[i] : '';
-            }
-        }
-    </script>
 </body>
+
 </html>
