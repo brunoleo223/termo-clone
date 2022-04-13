@@ -7,15 +7,12 @@ let dataTransformada = parseInt(`${dia}${mês}`);
 
 // const palavraDeHoje = palavras[dataTransformada];
 
-
-const palavraDeHoje = "lindo"
-
+const palavraDeHoje = "lindo";
 
 // Pega letra digitada pelo usuário
 
 const letras = [];
 let palavraDigitada = 0;
-
 
 /*
 teclas
@@ -30,25 +27,23 @@ document.onkeydown = function (e) {
   // console.log(key)
   const letra = String.fromCharCode(key);
 
-  atualizaArray(letra, key); 
-  atualizaPalavraEmTela(); 
+  atualizaArray(letra, key);
+  atualizaPalavraEmTela();
 
   // se apartar enter quando estiver com uma palavra completa
   if (letras.length == 5 && key === 13) {
     palavraDigitada = verificaSeAcertouPalavra();
 
-    if( palavraDigitada == 5 ){
-      acertouPalavar()
+    if (palavraDigitada == 5) {
+      acertouPalavra();
     }
   }
-
-  
 };
 
 // Atualiza Array
-function atualizaArray(letra, key){
+function atualizaArray(letra, key) {
   const reg = new RegExp("[A-Za-z]");
-  
+
   if (letras.length > 0 && key === 8) {
     // Backspace
     removeLetra();
@@ -56,8 +51,6 @@ function atualizaArray(letra, key){
     // Se não for um espaço
     addLetra(letra);
   }
-  
-  
 }
 
 // Adicionar letra no array
@@ -80,15 +73,13 @@ function atualizaPalavraEmTela() {
   }
 }
 
-
 // Ao pressionar ENTER
-function verificaSeAcertouPalavra(){
+function verificaSeAcertouPalavra() {
   let acertos = 0;
 
-  for(let i = 0; i < 5; i++){
-    
-    if(letras[i].toUpperCase() == palavraDeHoje[i].toUpperCase()){
-      acertos++
+  for (let i = 0; i < 5; i++) {
+    if (letras[i].toUpperCase() == palavraDeHoje[i].toUpperCase()) {
+      acertos++;
     }
   }
 
@@ -96,8 +87,11 @@ function verificaSeAcertouPalavra(){
 }
 
 // Se for a palavra certa
-function acertouPalavar(){
-  alert('foi!')
+function acertouPalavra() {
+  for (let i = 0; i < 5; i++) {
+    document.getElementById(`letra${i}`).classList.add("green");
+  }
+  console.log("foi!");
 }
 
 // Se não for a palavra certa

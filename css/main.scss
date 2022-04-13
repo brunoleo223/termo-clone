@@ -3,7 +3,31 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "Manrope", sans-serif;
+    font-family: "Mitr", sans-serif;
+}
+
+$letra-lugar-certo: green;
+$letra-lugar-errado: orange;
+$letra-errada: rgb(68, 65, 65);
+
+.green {
+    animation: letra-certa 1s linear forwards;
+}
+
+@keyframes letra-certa {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        background-color: $letra-lugar-certo;
+        color: white;
+    }
 }
 
 body {
@@ -11,8 +35,12 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #191816;
+    flex-direction: column;
+    gap: 1rem;
 
-    .row {
+    .row,
+    .second-row {
         display: flex;
         gap: 10px;
     }
@@ -23,8 +51,9 @@ body {
         justify-content: center;
         width: 60px;
         height: 60px;
-        border: 2px solid slategrey;
+        background-color: white;
         border-radius: 5px;
-        font-size: 2rem;
+        font-size: 2.3rem;
+        color: #191816;
     }
 }
