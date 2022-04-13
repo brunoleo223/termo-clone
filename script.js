@@ -91,7 +91,7 @@ function acertouPalavra() {
   for (let i = 0; i < 5; i++) {
     document.getElementById(`letra${i}`).classList.add("green");
   }
-  console.log("foi!");
+  alert("foi!");
 }
 
 // Se não for a palavra certa
